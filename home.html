@@ -1,0 +1,68 @@
+
+{% load static %}
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="utf-8">
+	<title>Home Page</title>
+	<link rel="stylesheet" type="text/css" href="{% static 'MyProject/css/style1.css' %}">
+	<link href="https://fonts.googleapis.com/css?family=Poppins:600&display=swap" rel="stylesheet">
+	<script src="https://kit.fontawesome.com/a81368914c.js"></script>
+
+
+</head>
+<body>
+	<img class="wave" src="{% static 'MyProject/img/wave.png' %}">
+    <div class="header">
+
+        <div class="navbar" id='nav'>
+
+           <ul>
+               {% if request.session.email %}
+                <li><h5>{{request.session.email}}</h5></li>
+
+                <li><a href="/logout/">Logout</a></li>
+               {% else %}
+              <li><a href="/login/">Login</a></li>
+
+             <li><a href="/reg/">Signup</a></li>
+
+               {% endif %}
+
+
+           </ul>
+
+        </div>
+
+    </div>
+    <form action="/res/">
+    <div class="search-box-wrapper">
+        <input type="text" placeholder="Search..." class="search-box-input" name="num1">
+        <button type="submit" class="search-box-button">&#128269;</button>
+
+
+    </div>
+
+    </div>
+    </form>
+
+
+	<div class="container">
+
+		<div class="img">
+			<img src="{% static 'MyProject/img/bg.svg' %}">
+            <h2 class="title">LOGO</h2>
+
+        </div>
+
+
+        <div class="middle">
+        <a href="" class="btn btn1">Optimum Product</a>
+        <a href="" class="btn btn2">Sentiment Analysis</a>
+        </div>
+    </div>
+
+
+</body>
+</html>

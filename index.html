@@ -1,0 +1,50 @@
+{% load static %}
+<!DOCTYPE html>
+<html>
+<head>
+	<title>Animated Login Form</title>
+	<link rel="stylesheet" type="text/css" href="{% static 'MyProject/css/style.css' %}">
+	<link href="https://fonts.googleapis.com/css?family=Poppins:600&display=swap" rel="stylesheet">
+	<script src="https://kit.fontawesome.com/a81368914c.js"></script>
+	<meta name="viewport" content="width=device-width, initial-scale=1">
+</head>
+<body>
+	<img class="wave" src="{% static 'MyProject/img/wave.png' %}">
+	<div class="container">
+		<div class="img">
+			<img src="{% static 'MyProject/img/bg.svg' %}">
+		</div>
+		<div class="login-content">
+			<form method="POST" action="/log/">
+				{% csrf_token %}
+				<img src="{% static 'MyProject/img/avatar.svg' %}">
+				<h2 class="title">Welcome</h2>
+           		<div class="input-div one">
+           		   <div class="i">
+           		   		<i class="fas fa-user"></i>
+           		   </div>
+           		   <div class="div">
+           		   		<input type="text" placeholder="Email Id" class="input" name="email" required>
+           		   </div>
+           		</div>
+           		<div class="input-div pass">
+           		   <div class="i">
+           		    	<i class="fas fa-lock"></i>
+           		   </div>
+           		   <div class="div">
+           		    	<input type="password" placeholder="Password" class="input" name="password" required>
+            	   </div>
+            	</div>
+            	<a href="/signup/">Don't have an account?</a>
+            	<input type="submit" class="w3 btn" value="Login">
+				{% if messages %}
+				{% for msg in messages %}
+				<h3>{{msg}}</h3>
+				{% endfor %}
+				{% endif %}
+            </form>
+        </div>
+    </div>
+    <script type="text/javascript" src="{% static 'MyProject/js/main.js' %}"></script>
+</body>
+</html>
